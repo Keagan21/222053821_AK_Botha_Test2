@@ -40,7 +40,6 @@ function AppNavigator() {
         }}
       >
         {user ? (
-          // Authenticated screens
           <>
             <Stack.Screen 
               name="ProductList" 
@@ -59,7 +58,7 @@ function AppNavigator() {
             />
           </>
         ) : (
-          // Unauthenticated screens
+      
           <>
             <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login' }} />
             <Stack.Screen name="Register" component={RegisterScreen} options={{ title: 'Register' }} />
