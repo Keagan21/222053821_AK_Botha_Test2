@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Listen for auth state changes (persists across restarts)
     const unsubscribe = onAuthStateChanged(auth, (currentUser ) => {
       setUser (currentUser );
       setLoading(false);
@@ -30,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     await signOut(auth);
     if (user) {
-      await clearCartLocally(user.uid);  // Clear local cart
+      await clearCartLocally(user.uid);  
     }
     setUser (null);
   };

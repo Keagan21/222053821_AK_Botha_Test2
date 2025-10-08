@@ -3,11 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ActivityIndicator } from 'react-native';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import LoginScreen from '../screens/LoginScreen';
-import RegisterScreen from '..screens/RegisterScreen';
-import ProductListScreen from '../screens/ProductListScreen';
-import ProductDetailScreen from '../screens/ProductDetailScreen'
-import CartScreen from '../screens/cartScreen';
+import LoginScreen from './screens/LoginScreen'
+import RegisterScreen from '.screens/RegisterScreen';
+import ProductListScreen from './screens/ProductListScreen';
+import ProductDetailScreen from './screens/ProductDetailScreen'
+import CartScreen from './screens/cartScreen';
 
 const Stack = createStackNavigator();
 

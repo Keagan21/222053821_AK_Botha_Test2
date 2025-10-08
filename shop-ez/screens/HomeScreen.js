@@ -1,4 +1,4 @@
-   // src/screens/HomeScreen.js
+
    import React from 'react';
    import { View, Text, Button, StyleSheet } from 'react-native';
    import { useAuth } from '../context/AuthContext';

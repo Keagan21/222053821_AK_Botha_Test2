@@ -1,4 +1,3 @@
-// src/screens/ProductListScreen.js
 import React, { useState, useEffect } from 'react';
 import {
   View,
@@ -16,7 +15,7 @@ import { useAuth } from '../context/AuthContext';
 import { theme } from '../styles/theme';
 
 const { width } = Dimensions.get('window');
-const imageSize = width * 0.2;  // Responsive: 20% of screen width for images
+const imageSize = width * 0.2;  
 
 export default function ProductListScreen({ navigation }) {
   const { user, logout } = useAuth();
@@ -31,7 +30,7 @@ export default function ProductListScreen({ navigation }) {
     fetchCategories();
   }, []);
 
-  // Fetch products (once on mount)
+  
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -41,7 +40,7 @@ export default function ProductListScreen({ navigation }) {
       const response = await fetch('https://fakestoreapi.com/products/categories');
       if (!response.ok) throw new Error('Failed to fetch categories');
       const data = await response.json();
-      setCategories(['all', ...data]);  // Add 'all' option
+      setCategories(['all', ...data]);  
     } catch (err) {
       setError('Error fetching categories');
       Alert.alert('Error', 'Failed to load categories. Check your connection.');
@@ -64,7 +63,7 @@ export default function ProductListScreen({ navigation }) {
     }
   };
 
-  // Filter products based on selected category
+  
   const filteredProducts = selectedCategory === 'all'
     ? products
     : products.filter(product => product.category === selectedCategory);
@@ -73,12 +72,12 @@ export default function ProductListScreen({ navigation }) {
     <TouchableOpacity
       style={styles.productItem}
       onPress={() => navigation.navigate('ProductDetail', { product: item })}
-      activeOpacity={0.7}  // Visual feedback on press
+      activeOpacity={0.7}  
     >
       <Image 
         source={{ uri: item.image }} 
         style={styles.productImage}
-        resizeMode="cover"  // Ensures image fits without distortion
+        resizeMode="cover"  
       />
       <View style={styles.productInfo}>
         <Text style={styles.productTitle} numberOfLines={2} ellipsizeMode="tail">
@@ -100,7 +99,6 @@ export default function ProductListScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* Custom header for logout and count (navigation header is shown via Stack options) */}
       <View style={styles.customHeader}>
         <Text style={styles.headerTitle}>
           Products ({filteredProducts.length})
@@ -117,7 +115,7 @@ export default function ProductListScreen({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      {/* Category Filter Buttons */}
+      
       <ScrollView 
         horizontal 
         showsHorizontalScrollIndicator={false} 
@@ -146,10 +144,9 @@ export default function ProductListScreen({ navigation }) {
         ))}
       </ScrollView>
 
-      {/* Error Display */}
+     
       {error ? <Text style={styles.error}>{error}</Text> : null}
 
-      {/* Product List */}
       {filteredProducts.length === 0 ? (
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>No products found in this category.</Text>
@@ -161,7 +158,7 @@ export default function ProductListScreen({ navigation }) {
           keyExtractor={item => item.id.toString()}
           contentContainerStyle={styles.list}
           showsVerticalScrollIndicator={false}
-          removeClippedSubviews={true}  // Performance for long lists
+          removeClippedSubviews={true}  
         />
       )}
     </View>
@@ -179,8 +176,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: theme.spacing.large,
     backgroundColor: theme.colors.card,
-    elevation: 2,  // Android shadow
-    shadowColor: '#000',  // iOS shadow
+    elevation: 2, 
+    shadowColor: '#000',  
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
@@ -231,7 +228,7 @@ const styles = StyleSheet.create({
     color: theme.colors.text,
   },
   selectedCategoryText: {
-    color: theme.colors.card,  // White for selected
+    color: theme.colors.card,  
     fontWeight: 'bold',
   },
   productItem: {
@@ -263,7 +260,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: theme.colors.text,
     marginBottom: theme.spacing.small,
-    flexShrink: 1,  // Allows text wrapping
+    flexShrink: 1,  
   },
   productPrice: {
     fontSize: 18,

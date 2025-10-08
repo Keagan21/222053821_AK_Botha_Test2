@@ -1,4 +1,3 @@
-// src/screens/RegisterScreen.js (Fully Verified - No Spaces or Comma Issues)
 import React, { useState } from 'react';
 import {
   View,

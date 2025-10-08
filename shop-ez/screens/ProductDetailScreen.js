@@ -1,4 +1,4 @@
-// src/screens/ProductDetailScreen.js (updated)
+
 import React from 'react';
 import {
   View,
