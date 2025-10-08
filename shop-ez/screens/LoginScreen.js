@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../fireBase';
-import { theme, Button } from '../styles/theme';
 import { useAuth } from '../context/AuthContext';
 
 const { width } = Dimensions.get('window');

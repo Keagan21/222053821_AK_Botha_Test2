@@ -12,7 +12,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import { theme } from '../styles/theme';
+
 
 const { width } = Dimensions.get('window');
 const imageSize = width * 0.2;  

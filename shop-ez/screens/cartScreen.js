@@ -12,7 +12,7 @@
      NetInfo,  
    } from 'react-native';
    import { ref, onValue, update, remove } from 'firebase/database';
-   import { database } from '../firebase/config';
+   import { db } from '../fireBase'
    import { useAuth } from '../context/AuthContext';
    import { saveCartLocally, loadCartLocally } from '../utils/storage'; 
 
@@ -31,7 +31,7 @@
          setError('');
 
         
-         const cartRef = ref(database, `carts/${user.uid}/items`);
+         const cartRef = ref(db, `carts/${user.uid}/items`);
          const unsubscribe = onValue(
            cartRef,
            (snapshot) => {
@@ -71,7 +71,7 @@
 
        try {
          if (!isOffline) {
-           await update(ref(database, `carts/${user.uid}/items/${productId}`), { quantity: newQuantity });
+           await update(ref(db, `carts/${user.uid}/items/${productId}`), { quantity: newQuantity });
          }
          setCartItems(prev => {
            const updated = { ...prev, [productId]: { ...prev[productId], quantity: newQuantity } };
@@ -95,7 +95,7 @@
              onPress: async () => {
                try {
                  if (!isOffline) {
-                   await remove(ref(database, `carts/${user.uid}/items/${productId}`));
+                   await remove(ref(db, `carts/${user.uid}/items/${productId}`));
                  }
                  setCartItems(prev => {
                    const updated = { ...prev };

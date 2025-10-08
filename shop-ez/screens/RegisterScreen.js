@@ -9,8 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';  
-import { auth } from '../fireBase';  
-import { theme } from '../styles/theme';
+import { auth } from '../fireBase.js';  
 import { useAuth } from '../context/AuthContext.js';
 
 const { width } = Dimensions.get('window');
