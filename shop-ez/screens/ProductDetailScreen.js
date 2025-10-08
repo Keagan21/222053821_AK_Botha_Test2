@@ -30,8 +30,7 @@ export default function ProductDetailScreen({ route, navigation }) {
       quantity: 1,
     };
 
-    // Check if exists and increment, else set new
-    set(cartItemRef, cartItem)  // Overwrite for simplicity; use transaction for atomic increment in prod
+    set(cartItemRef, cartItem)  
       .then(() => {
         Alert.alert('Success', `${product.title} added to cart!`);
       })
@@ -71,9 +70,9 @@ export default function ProductDetailScreen({ route, navigation }) {
   );
 }
 
-// ... (styles unchanged, but add this for cart button)
+
 const styles = StyleSheet.create({
-  // ... existing styles
+
   cartButton: {
     padding: 8,
   },
@@ -81,5 +80,5 @@ const styles = StyleSheet.create({
     color: '#007AFF',
     fontSize: 16,
   },
-  // ... rest unchanged
+ 
 });
